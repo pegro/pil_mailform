@@ -1,0 +1,217 @@
+<!-- ###TMAIL_FORM### begin -->
+<form action="###FORM_URL###" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="MAX_FILE_SIZE" value="300000000" />
+	<table cellspacing="4">
+		<!-- ###HEADER_STD### begin -->
+		<tr>
+			<td colspan="2"><b>###_LL_LABEL_HEADER_STD###</b><hr /></td>
+		</tr>
+		<!-- ###HEADER_STD### end -->
+		<!-- ###HEADER_ERR### begin -->
+		<tr>
+			<td colspan="2" style="color: red"><b>###_LL_LABEL_HEADER_ERR###</b><hr /></td>
+		</tr>
+		<!-- ###HEADER_ERR### end -->
+		<tr>
+			<td class="###MULTI_RECIPIENT_ERR###">###_LL_LABEL_MULTI_RECIPIENT###:###MULTI_RECIPIENT_ERR_TXT###</td>
+			<td>
+				<select name="tx_pilmailform_pi1[select][multi_recipient]">###MULTI_RECIPIENT_OPTIONS###</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="###NAME_ERR###">###_LL_LABEL_NAME### ###NAME_ERR_TXT###</td>
+			<td><input type="text" name="tx_pilmailform_pi1[text][name]" value="###NAME_VAL###" /></td>
+		</tr>
+		<tr>
+			<td class="###SURNAME_ERR###">###_LL_LABEL_SURNAME### ###SURNAME_ERR_TXT###</td>
+			<td><input type="text" name="tx_pilmailform_pi1[text][surname]" value="###SURNAME_VAL###" /></td>
+		</tr>
+		<!-- ###HEADER_EMAIL_INVALID### begin -->
+		<tr>
+			<td colspan="2" style="color: red"><b>We could not validate your email address. Perhaps you have misspelled it?</b></td>
+		</tr>
+		<!-- ###HEADER_EMAIL_INVALID### end -->
+		<tr>
+			<td class="###EMAIL_ERR###">###_LL_LABEL_EMAIL### ###EMAIL_ERR_TXT###</td>
+			<td><input type="text" name="tx_pilmailform_pi1[text][email]" value="###EMAIL_VAL###" /></td>
+		</tr>
+		<tr>
+			<td class="###USER_TYPE_ERR###">###_LL_LABEL_USER_TYPE### ###USER_TYPE_ERR_TXT###</td>
+			<td>
+				<input type="radio" name="tx_pilmailform_pi1[radio][user_type]" value="private" ###USER_TYPE_PRIVATE_VAL### /> Private
+				<br />
+				<input type="radio" name="tx_pilmailform_pi1[radio][user_type]" value="buisness" ###USER_TYPE_BUISNESS_VAL### /> Buisness
+			</td>
+		</tr>
+		<tr>
+			<td class="###LEVEL_ERR###">###_LL_LABEL_LEVEL###</td>
+			<td>
+				<select name="tx_pilmailform_pi1[select][level]">
+					<option value="">Choose best fit</option>
+					<option value="Beginner" ###LEVEL_BEGINNER_VAL###>Beginner</option>
+					<option value="Advanced" ###LEVEL_ADVANCED_VAL###>Advanced</option>
+					<option value="Expert" ###LEVEL_EXPERT_VAL###>Expert</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="###JOB_DESCRIPTION_ERR###">###_LL_LABEL_JOB_DESCRIPTION###</td>
+			<td>
+				<select name="tx_pilmailform_pi1[select][job_description][]" multiple="multiple">
+					<option value="Developer" ###JOB_DESCRIPTION_DEVELOPER_VAL###>Developer</option>
+					<option value="Sales person" ###JOB_DESCRIPTION_SALES_PERSON_VAL###>Sales person</option>
+					<option value="Manager" ###JOB_DESCRIPTION_MANAGER_VAL###>Manager</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="###SUBJECT_ERR###">###_LL_LABEL_SUBJECT### ###SUBJECT_ERR_TXT###</td>
+			<td><input type="text" name="tx_pilmailform_pi1[text][subject]" value="###SUBJECT_VAL###" /></td>
+		</tr>
+		<tr>
+			<td class="###MESSAGE_ERR###">###_LL_LABEL_MESSAGE### ###MESSAGE_ERR_TXT###</td>
+			<td><textarea name="tx_pilmailform_pi1[textarea][message]" cols="30" rows="7">###MESSAGE_VAL###</textarea></td>
+		</tr>
+		<tr>
+			<td class="###FILE1_ERR###">###_LL_LABEL_FILE1### ###FILE1_ERR_TXT###</td>
+			<td><input type="file" name="tx_pilmailform_pi1[file][file1]" /></td>
+		</tr>
+		<tr>
+			<td class="###FILE2_ERR###">###_LL_LABEL_FILE2### ###FILE2_ERR_TXT###</td>
+			<td><input type="file" name="tx_pilmailform_pi1[file][file2]" /></td>
+		</tr>
+		<tr>
+			<td class="###USER_COPY_ERR###">###_LL_LABEL_USER_COPY###</td>
+			<td><input type="checkbox" name="tx_pilmailform_pi1[checkbox][user_copy]" value="yes" ###USER_COPY_YES_VAL### /></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="submit" name="tx_pilmailform_pi1[submit]" value="###_LL_LABEL_SUBMIT###" /></td>
+		</tr>
+	</table>
+</form>
+<!-- ###TMAIL_FORM### end -->
+
+
+
+
+<!-- ###TMAIL_MAIL### begin -->
+This message was sent using the TMailform extension
+
+Date:			###_DATE###
+Time:			###_TIME###
+Page:			###_PAGE### (id: ###_PID###)
+Site:			###_SITE###
+Path:			###_PATH###
+Client IP:		###_IP###
+
+# Name:			###NAME_VAL###
+# Email address:	###EMAIL_VAL###
+# User type:		###USER_TYPE_VAL###
+# Typo3 level:		###LEVEL_VAL###
+# Job description:	###JOB_DESCRIPTION_VAL###
+
+# Message:
+
+###MESSAGE_VAL###
+<!-- ###TMAIL_MAIL### end -->
+
+<!-- ###TMAIL_MAIL_HTML### begin -->
+<h3>This message was sent using the TMailform extension</h3>
+<table cellspacing="1" cellpadding="4" style="background: #333333;">
+	<tr>
+		<td style="background: #336699; color: #ffffff; font-weight: bold;">Name</td>
+		<td style="background: #ffffff;">###NAME_VAL###</td>
+	</tr>
+	<tr>
+		<td style="background: #336699; color: #ffffff; font-weight: bold;">E-mail</td>
+		<td style="background: #ffffff;">###EMAIL_VAL###</td>
+	</tr>
+	<tr>
+		<td style="background: #336699; color: #ffffff; font-weight: bold;">User type</td>
+		<td style="background: #ffffff;">###USER_TYPE_VAL###</td>
+	</tr>
+	<tr>
+		<td style="background: #336699; color: #ffffff; font-weight: bold;">Typo3 level</td>
+		<td style="background: #ffffff;">###LEVEL_VAL###</td>
+	</tr>
+	<tr>
+		<td style="background: #336699; color: #ffffff; font-weight: bold;">Job description</td>
+		<td style="background: #ffffff;">###JOB_DESCRIPTION_VAL###</td>
+	</tr>
+	<tr>
+		<td style="background: #336699; color: #ffffff; font-weight: bold;">Your message</td>
+		<td style="background: #ffffff;">###MESSAGE_VAL###</td>
+	</tr>
+</table>
+<!-- ###TMAIL_MAIL_HTML### end -->
+
+
+
+
+
+<!-- ###TMAIL_MAIL_USERCOPY### begin -->
+Hello,
+
+We have recieved the following information from you:
+
+Name:			###NAME_VAL###
+Email address:		###EMAIL_VAL###
+User type:		###USER_TYPE_VAL###
+User level:		###LEVEL_VAL###
+Job description:	###JOB_DESCRIPTION_VAL###
+
+Message:
+
+###MESSAGE_VAL###
+
+-- 
+Regards
+TMailform Team
+<!-- ###TMAIL_MAIL_USERCOPY### end -->
+
+<!-- ###TMAIL_MAIL_USERCOPY_HTML### begin -->
+<h3>This message was sent using the TMailform extension</h3>
+<p>This is a copy of your message</p>
+<table cellspacing="1" cellpadding="4" style="background: #333333;">
+	<tr>
+		<td style="background: #336699; color: #ffffff; font-weight: bold;">Name</td>
+		<td style="background: #ffffff;">###NAME_VAL###</td>
+	</tr>
+	<tr>
+		<td style="background: #336699; color: #ffffff; font-weight: bold;">E-mail</td>
+		<td style="background: #ffffff;">###EMAIL_VAL###</td>
+	</tr>
+	<tr>
+		<td style="background: #336699; color: #ffffff; font-weight: bold;">User type</td>
+		<td style="background: #ffffff;">###USER_TYPE_VAL###</td>
+	</tr>
+	<tr>
+		<td style="background: #336699; color: #ffffff; font-weight: bold;">Typo3 level</td>
+		<td style="background: #ffffff;">###LEVEL_VAL###</td>
+	</tr>
+	<tr>
+		<td style="background: #336699; color: #ffffff; font-weight: bold;">Job description</td>
+		<td style="background: #ffffff;">###JOB_DESCRIPTION_VAL###</td>
+	</tr>
+	<tr>
+		<td style="background: #336699; color: #ffffff; font-weight: bold;">Your message</td>
+		<td style="background: #ffffff;">###MESSAGE_VAL###</td>
+	</tr>
+</table>
+<!-- ###TMAIL_MAIL_USERCOPY_HTML### end -->
+
+
+
+
+
+<!-- ###TMAIL_THANKS### begin -->
+<h3>Thank you</h3>
+We will respond to you inquiry as soon as posible.
+<!-- ###TMAIL_THANKS### end -->
+
+
+
+<!-- ###TMAIL_ERROR### begin -->
+<h3>Sorry</h3>
+An internal error occured while sending the email. Please try again.
+<!-- ###TMAIL_ERROR### end -->

@@ -48,6 +48,7 @@ class tx_pilmailform_pi1 extends tslib_pibase {
 	var $piVars = array();
 	var $errStr = '';
 	var $errForm;
+	protected $freeCap;
 
 	/**
 	 * Typo3 call function
@@ -60,7 +61,9 @@ class tx_pilmailform_pi1 extends tslib_pibase {
 		$this->pi_USER_INT_obj=1;
 		$this->localconf = $conf;
 		$this->errForm = false;
-
+		if (t3lib_extMgm::isLoaded('sr_freecap')) {
+			$this->freeCap = t3lib_div::makeInstance('SJBR\\SrFreecap\\PiBaseApi');
+		}
 		if ($this->init()) {
 			if (isset($this->piVars['submit'])) {
 				// We may not actually need the mailform content, but we need to check for form validation errors...
@@ -509,6 +512,11 @@ class tx_pilmailform_pi1 extends tslib_pibase {
 			$this->get_defaultValues($markers);
 			$subMarkers["###HEADER_EMAIL_INVALID###"] = '';
 		}
+		if (is_object($this->freeCap)) {
+			$markers = array_merge($markers, $this->freeCap->makeCaptcha());
+		} else {
+			$subpartArray['###CAPTCHA_INSERT###'] = '';
+		}
 
 		// Set form url
 		$markers['###FORM_URL###'] = $this->pi_getPageLink($GLOBALS['TSFE']->id);
@@ -633,6 +641,14 @@ class tx_pilmailform_pi1 extends tslib_pibase {
 								$this->errForm = true;
 								break 2;
 							}
+						}
+					break;
+					case 'useCaptcha':
+						if (is_object($this->freeCap) && !$this->freeCap->checkWord($fval)) {
+							$result['is_error'] = true;
+							$result['error_str'] = $v['estr'];
+							$this->errForm = true;
+							break 2;
 						}
 					break;
 					default:

@@ -10,7 +10,7 @@ It contains only compatibility fixes and patches for the following:
 For TYPO3 7.6 you will need the compatibility6 extension. I am working on a native solution.
 
 BEWARE: This release only contains patches and fixes for TYPO3 comapitiblity. IT HAS NO SECURITY UPDATES/FIXES WHATSOEVER. 
-Use with cara and on your own responsibility!
+Use with care. No warranties; use it on your own responsibility!
 
 
 Christian Lewin.

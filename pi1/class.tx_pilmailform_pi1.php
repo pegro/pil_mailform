@@ -569,7 +569,7 @@ class tx_pilmailform_pi1 extends TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                             $markers['###' . strtoupper($k) . '_ERR###'] = $reqVal['is_error'] ? $this->localconf['errorSubstitution'] : '';
                             $markers['###' . strtoupper($k) . '_ERR_TXT###'] = $reqVal['is_error'] ? $reqVal['error_str'] : '';
                             // Try to detect header injection
-                            $this->errForm = (preg_match("\r", $v) || preg_match("\n", $v)) ? true : $this->errForm;
+                            $this->errForm = (preg_match("/\r/", $v) || preg_match("/\n/", $v)) ? true : $this->errForm;
                             break;
                         case 'textarea':
                             $markers['###' . strtoupper($k) . '_VAL###'] = !empty($v) || strlen($v) >= 1 ? htmlspecialchars($v) : '';
